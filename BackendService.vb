@@ -61,4 +61,19 @@ Public Class BackendService
             Console.WriteLine($"An error occurred: {e.Message}")
         End Try
     End Sub
+
+    ' Search a submission form base on email id
+    Public Shared Function SearchSubmission(email As String) As List(Of Submission)
+        Dim submissions As New List(Of Submission)()
+        Try
+            Dim response As HttpResponseMessage = client.GetAsync($"{baseUrl}search?Email={email}").Result
+            response.EnsureSuccessStatusCode()
+            Dim responseBody As String = response.Content.ReadAsStringAsync().Result
+            submissions = JsonConvert.DeserializeObject(Of List(Of Submission))(responseBody)
+            Console.WriteLine($"Delete response: {responseBody}")
+        Catch e As Exception
+            Console.WriteLine($"An error occurred: {e.Message}")
+        End Try
+        Return submissions
+    End Function
 End Class

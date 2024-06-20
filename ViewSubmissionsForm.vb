@@ -80,6 +80,20 @@ Public Class ViewSubmissionsForm
 
     End Sub
 
+    Private Sub SearchSubmission()
+        Dim email = searchBox.Text
+        Dim submissions = BackendService.SearchSubmission(email)
+        If submissions IsNot Nothing AndAlso submissions.Count > 0 Then
+            Dim submission = submissions(0)
+            lblName.Text = submission.Name
+            lblEmail.Text = submission.Email
+            lblPhone.Text = submission.Phone
+            lblGithub.Text = submission.GitHub
+            lblTimer.Text = submission.Timer
+        Else
+            MsgBox("No Submission available")
+        End If
+    End Sub
     Private Sub btnDelete_Click(sender As Object, e As EventArgs) Handles btnDelete.Click
         DeleteSubmission()
     End Sub
@@ -89,4 +103,7 @@ Public Class ViewSubmissionsForm
     End Sub
 
 
+    Private Sub btnSearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
+        SearchSubmission()
+    End Sub
 End Class

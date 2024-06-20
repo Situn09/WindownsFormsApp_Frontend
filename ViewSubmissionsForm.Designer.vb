@@ -37,13 +37,15 @@ Partial Class ViewSubmissionsForm
         Me.btnNext = New System.Windows.Forms.Button()
         Me.btnDelete = New System.Windows.Forms.Button()
         Me.btnEdit = New System.Windows.Forms.Button()
+        Me.searchBox = New System.Windows.Forms.TextBox()
+        Me.btnSearch = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Segoe UI", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point)
-        Me.Label1.Location = New System.Drawing.Point(96, 55)
+        Me.Label1.Location = New System.Drawing.Point(96, 19)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(371, 23)
         Me.Label1.TabIndex = 0
@@ -173,12 +175,31 @@ Partial Class ViewSubmissionsForm
         Me.btnEdit.Text = "EDIT (CLTR + E)"
         Me.btnEdit.UseVisualStyleBackColor = False
         '
+        'searchBox
+        '
+        Me.searchBox.Location = New System.Drawing.Point(304, 69)
+        Me.searchBox.Name = "searchBox"
+        Me.searchBox.PlaceholderText = " write your email id"
+        Me.searchBox.Size = New System.Drawing.Size(145, 27)
+        Me.searchBox.TabIndex = 20
+        '
+        'btnSearch
+        '
+        Me.btnSearch.Location = New System.Drawing.Point(96, 69)
+        Me.btnSearch.Name = "btnSearch"
+        Me.btnSearch.Size = New System.Drawing.Size(196, 29)
+        Me.btnSearch.TabIndex = 21
+        Me.btnSearch.Text = "Search Form by email id"
+        Me.btnSearch.UseVisualStyleBackColor = True
+        '
         'ViewSubmissionsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.ControlLight
+        Me.BackColor = System.Drawing.SystemColors.HighlightText
         Me.ClientSize = New System.Drawing.Size(566, 450)
+        Me.Controls.Add(Me.btnSearch)
+        Me.Controls.Add(Me.searchBox)
         Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnDelete)
         Me.Controls.Add(Me.btnNext)
@@ -217,4 +238,6 @@ Partial Class ViewSubmissionsForm
     Friend WithEvents btnNext As Button
     Friend WithEvents btnDelete As Button
     Friend WithEvents btnEdit As Button
+    Friend WithEvents searchBox As TextBox
+    Friend WithEvents btnSearch As Button
 End Class
